@@ -1,0 +1,96 @@
+@import '../../setting.scss';
+
+.board-column {
+    display: flex;
+
+    overflow-x: auto;
+
+    margin-bottom: $gap !important;
+    padding      : 0 $gap;
+
+    &::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+
+    &::-webkit-scrollbar:horizontal {
+        height: 14px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, $alpha: .44);
+        border-radius   : 5px;
+
+    }
+
+    .cards-drop-preview {
+        background-color: rgba(150, 150, 200, 0.1);
+        border          : 1px dashed #abc;
+        margin          : 5px 10px 5px 5px;
+    }
+
+
+    .add-new-column {
+
+        width           : 272px;
+        line-height     : 32px;
+        padding         : 6px 15px;
+        color           : white;
+        cursor          : pointer;
+        background-color: hsla(0, 0, 100, .24);
+        border-radius   : $border-radius;
+
+        &:hover {
+            background-color: hsla(0, 0, 100, .44);
+        }
+    }
+
+    .enter-add-list {
+        width           : 272px;
+        background-color: $list-bg-color;
+        padding         : 5px;
+        border-radius   : $border-radius;
+        display         : flex;
+        flex-direction  : column;
+        justify-items   : center;
+
+        input.form-control {
+            box-shadow: none;
+
+            &:focus {
+                border: 2.5px #0079bf solid;
+            }
+        }
+
+        .button-add {
+            display  : flex;
+            flex-wrap: wrap;
+            gap      : 14px;
+            padding  : 5px 0 0;
+
+            .active {
+                border          : none;
+                background-color: rgba($color: #0d6efd, $alpha: .8);
+                box-shadow      : none;
+
+                &:hover {
+                    background-color: rgba($color: #0d6efd, $alpha: 1);
+                }
+            }
+
+        }
+
+        .close {
+
+
+            &:hover {
+                color: rgba($color: $app-main-color, $alpha: .75);
+            }
+        }
+
+        .fa-times:before {
+            content  : "\f00d";
+            font-size: 35px;
+        }
+
+    }
+}

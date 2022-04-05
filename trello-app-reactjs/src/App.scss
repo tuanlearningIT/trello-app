@@ -1,0 +1,34 @@
+@import './setting.scss';
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing : antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size              : 14px;
+    line-height            : 1.3em;
+    overflow               : hidden;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+.trello-app-master {
+    height            : 100vh;
+    display           : grid;
+    grid-template-rows: 40px 50px 1fr;
+    background-color  : $board-bg-color;
+
+    .icon {
+        margin-right: 5px;
+        font-size   : 14px;
+    }
+
+    .close {
+        color: #42526e;
+    }
+}

@@ -1,0 +1,210 @@
+@import '../../../setting.scss';
+
+.column {
+    flex   : 0 0 auto;
+    width  : 290px;
+    height : calc(100vh -40px - 50px - #{$gap});
+    margin : 0 $gap 0 0;
+    cursor : pointer;
+
+    >* {
+        background-color: $list-bg-color;
+        padding         : 0 8px;
+        color           : #333;
+    }
+
+
+
+    header {
+        padding-left           : 15px;
+        height                 : $column-header-height;
+        line-height            : $column-header-height;
+        font-size              : 16px;
+        font-weight            : bold;
+        border-top-left-radius : $border-radius;
+        border-top-right-radius: $border-radius;
+
+    }
+
+    footer {
+        padding-left: 10px;
+        height      : $column-footer-height;
+        line-height : $column-footer-height;
+        font-size   : 16px;
+
+        border-bottom-left-radius : $border-radius;
+        border-bottom-right-radius: $border-radius;
+        color                     : #888;
+
+        .footer-action {
+            margin-left: 5px;
+
+
+            &:hover {
+                color: $app-main-color;
+            }
+        }
+    }
+
+    .card-list {
+        margin                    : 0;
+        max-height                : calc(87vh - #{$column-header-height} - #{$column-footer-height});
+        overflow-y                : auto;
+        border-bottom-left-radius : $border-radius;
+        border-bottom-right-radius: $border-radius;
+
+        .smooth-dnd-container {
+            position  : relative;
+            min-height: 5px;
+            min-width : 5px;
+        }
+
+        &::-webkit-scrollbar {
+            -webkit-appearance: none;
+        }
+
+        &::-webkit-scrollbar:vertical {
+            width: 14px;
+
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: darken($list-bg-color, $amount: 15);
+            border-right    : 5px solid $list-bg-color;
+            background-clip : padding-box;
+
+        }
+
+        .card-ghost {
+            transition: transform 0.18s ease;
+            transform : rotateZ(5deg)
+        }
+
+        .card-ghost-drop {
+            transition: transform 0.18s ease-in-out;
+            transform : rotateZ(0deg)
+        }
+
+        .drop-preview {
+            background-color: rgba(150, 150, 200, 0.1);
+            border          : 1px dashed #abc;
+            margin          : 5px;
+        }
+
+        .enter-add-card {
+            border-bottom-left-radius : $border-radius;
+            border-bottom-right-radius: $border-radius;
+
+            .active {
+                margin-bottom: 7px;
+            }
+
+            .add-textarea-card {
+                min-height: 64px;
+                max-height: 162px;
+                box-shadow: none;
+                border    : none;
+            }
+
+            .button-add-card {
+                display  : flex;
+                flex-wrap: wrap;
+                gap      : 14px;
+                padding  : 0;
+                margin   : 7px 0 7px 0;
+
+                button.btn.btn-primary {
+                    padding: 5px 7px;
+                }
+
+                .add-list-card-title {
+                    border          : none;
+                    background-color: rgba($color: #0d6efd, $alpha: .8);
+                    box-shadow      : none;
+
+
+                    &:hover {
+                        background-color: rgba($color: #0d6efd, $alpha: 1);
+                    }
+                }
+
+                .close-card {
+
+                    color: #42526e;
+
+                    &:hover {
+                        color: rgba($color: $app-main-color, $alpha: .75);
+                    }
+                }
+
+                .fa-times:before {
+                    content  : "\f00d";
+                    font-size: 35px;
+                }
+            }
+        }
+
+    }
+
+    .column-drag-handle {
+        padding-bottom: 10px;
+        display       : flex;
+        padding-bottom: 36px;
+        padding-top   : 7px;
+
+        .column-title {
+            flex: 90%;
+
+
+            input.content-edit-title {
+                font-weight     : 600;
+                margin-left     : -7px;
+                width           : 102%;
+                box-shadow      : none;
+                border          : none;
+                height          : 29px;
+                background-color: inherit;
+
+                // &:hover {
+                //     cursor: pointer;
+                // }
+
+                &:focus {
+                    border: 2.5px #0079bf solid;
+                }
+            }
+        }
+
+        .dropdown-title {
+            flex: 10%;
+
+            .dropdown-btn {
+                background-color  : #ebecf0;
+                border            : none;
+                letter-spacing    : 1px;
+                //  font-size     : 16px;
+                font-weight       : 600;
+                padding           : 0 10px 6px 10px;
+                margin-bottom     : 12px;
+
+                &:hover {
+                    background-color: rgba($color: $app-main-color, $alpha: .14);
+                }
+
+                &:after {
+                    content      : '...';
+                    border       : none;
+                    color        : #333;
+                    margin-bottom: 2px;
+
+                }
+            }
+        }
+
+        .btn:focus,
+        .btn:active {
+            outline   : none !important;
+            box-shadow: none !important;
+        }
+    }
+}
